@@ -150,62 +150,32 @@ export default function InvitationPage() {
             </p>
           </motion.div>
 
-          {/* Man — LEFT side, drifts RIGHT toward center */}
-          <motion.div
+          {/* Man — LEFT, exact Lovable pattern: motion.img directly, w-auto, no wrapper */}
+          <motion.img
+            src="/images/male.png"
+            alt="Groom"
             style={{ x: manX, y: charY, scale: charScale, opacity: indivOpacity, left: '4%' }}
-            className="absolute bottom-0 pointer-events-none select-none"
-          >
-            {/* Container clips naturally wide photos; objectPosition top keeps faces visible */}
-            <div
-              className="overflow-hidden h-[62vh] sm:h-[72vh] md:h-[78vh]"
-              style={{ width: 'clamp(140px, 38vw, 340px)' }}
-            >
-              <img
-                src="/images/male.png"
-                alt="Groom"
-                className="w-full h-full object-cover object-top"
-                style={{ filter: 'drop-shadow(0 30px 40px rgba(40, 50, 30, 0.18))' }}
-                draggable={false}
-              />
-            </div>
-          </motion.div>
+            className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto select-none pointer-events-none drop-shadow-[0_30px_40px_rgba(40,50,30,0.18)]"
+            draggable={false}
+          />
 
-          {/* Woman — RIGHT side, drifts LEFT toward center */}
-          <motion.div
+          {/* Woman — RIGHT, exact Lovable pattern */}
+          <motion.img
+            src="/images/female.png"
+            alt="Bride"
             style={{ x: womanX, y: charY, scale: charScale, opacity: indivOpacity, right: '4%' }}
-            className="absolute bottom-0 pointer-events-none select-none"
-          >
-            <div
-              className="overflow-hidden h-[62vh] sm:h-[72vh] md:h-[78vh]"
-              style={{ width: 'clamp(140px, 38vw, 340px)' }}
-            >
-              <img
-                src="/images/female.png"
-                alt="Bride"
-                className="w-full h-full object-cover object-top"
-                style={{ filter: 'drop-shadow(0 30px 40px rgba(80, 90, 60, 0.15))' }}
-                draggable={false}
-              />
-            </div>
-          </motion.div>
+            className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto select-none pointer-events-none drop-shadow-[0_30px_40px_rgba(80,90,60,0.15)]"
+            draggable={false}
+          />
 
-          {/* Couple photo — our addition, fades in as individuals fade out */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <motion.div style={{ opacity: coupleOpacity, scale: coupleScale }}>
-              <div
-                className="overflow-hidden h-[62vh] sm:h-[72vh] md:h-[78vh]"
-                style={{ width: 'clamp(260px, 68vw, 640px)' }}
-              >
-                <img
-                  src="/images/couple.png"
-                  alt="Couple"
-                  className="w-full h-full object-cover object-top"
-                  style={{ filter: 'drop-shadow(0 30px 40px rgba(60, 80, 50, 0.14))' }}
-                  draggable={false}
-                />
-              </div>
-            </motion.div>
-          </div>
+          {/* Couple photo — centered, same pattern */}
+          <motion.img
+            src="/images/couple.png"
+            alt="Couple"
+            style={{ opacity: coupleOpacity, scale: coupleScale, left: '50%', x: '-50%' }}
+            className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto select-none pointer-events-none z-10 drop-shadow-[0_30px_40px_rgba(60,80,50,0.14)]"
+            draggable={false}
+          />
 
           {/* Soft golden halo — Lovable's exact implementation */}
           <motion.div
