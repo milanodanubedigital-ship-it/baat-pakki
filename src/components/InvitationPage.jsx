@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import ScratchRevealCard from './ScratchRevealCard'
 
 // ─── SVG primitives — exact from Lovable ─────────────────────────────────────
 
@@ -267,6 +268,9 @@ export default function InvitationPage() {
 
         </div>
       </section>
+
+      {/* Scratch-to-reveal section — appears after the scroll transformation */}
+      <ScratchRevealCard />
 
       {/* Blessing section — Lovable's exact layout */}
       <section className="relative bg-page py-24 sm:py-32 px-6 text-center">
