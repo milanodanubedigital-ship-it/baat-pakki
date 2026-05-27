@@ -5,50 +5,41 @@
 @tailwind utilities;
 
 :root {
-  --background: #fdfaf5;
-  --green-deep: #2d5a3d;
-  --green-mid: #4a7a5a;
-  --green-soft: #7a9e87;
-  --gold: #c9a84c;
-  --gold-soft: #e8d48e;
+  --bg:          #fdfaf5;
+  --green-deep:  #1e3d2b;
+  --green-mid:   #456b52;
+  --green-soft:  #7a9e87;
+  --gold:        #b8963e;
+  --gold-light:  #d4b878;
+  --gold-faint:  rgba(184, 150, 62, 0.15);
 }
 
 @layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border-color: #e5e7eb;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    background-color: var(--background);
+    background-color: var(--bg);
     color: var(--green-deep);
     font-family: 'Cormorant Garamond', serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 }
 
 @layer utilities {
-  .font-display     { font-family: 'Italiana', serif; letter-spacing: 0.02em; }
-  .font-serif-body  { font-family: 'Cormorant Garamond', serif; }
-  .font-sans-body   { font-family: 'Inter', sans-serif; letter-spacing: 0.18em; }
-  .font-arabic      { font-family: 'Amiri', serif; }
-  .text-green-deep  { color: var(--green-deep); }
-  .text-green-mid   { color: var(--green-mid); }
-  .text-green-soft  { color: var(--green-soft); }
-  .text-gold        { color: var(--gold); }
-  .bg-background    { background-color: var(--background); }
-  .bg-gold          { background-color: var(--gold); }
-  .border-green-soft { border-color: var(--green-soft); }
-  .border-gold      { border-color: var(--gold); }
+  .font-display    { font-family: 'Italiana', serif; letter-spacing: 0.02em; }
+  .font-body       { font-family: 'Cormorant Garamond', serif; }
+  .font-label      { font-family: 'Inter', sans-serif; letter-spacing: 0.2em; }
+  .font-arabic     { font-family: 'Amiri', serif; }
+  .text-deep       { color: var(--green-deep); }
+  .text-mid        { color: var(--green-mid); }
+  .text-soft       { color: var(--green-soft); }
+  .text-gold       { color: var(--gold); }
+  .bg-page         { background-color: var(--bg); }
 }
 
-/* Elegant scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: var(--gold-soft); border-radius: 4px; }
+::-webkit-scrollbar           { width: 4px; }
+::-webkit-scrollbar-track     { background: var(--bg); }
+::-webkit-scrollbar-thumb     { background: var(--gold-light); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
