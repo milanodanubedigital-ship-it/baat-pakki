@@ -5,7 +5,8 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git branch *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "WebFetch(domain:baat-pakki.lovable.app)"
     ]
   }
 }
