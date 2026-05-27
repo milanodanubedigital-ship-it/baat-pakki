@@ -89,13 +89,14 @@ const InvitationPage = () => {
 
   const p = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.6 })
 
-  // Characters move from edges toward center
-  const womanX = useTransform(p, [0, 0.7], ['-2%', '22%'])
-  const manX   = useTransform(p, [0, 0.7], ['2%', '-22%'])
+  // Man on LEFT moves right, Woman on RIGHT moves left
+  const manX   = useTransform(p, [0, 0.7], ['-2%', '22%'])
+  const womanX = useTransform(p, [0, 0.7], ['2%', '-22%'])
   const charY  = useTransform(p, [0, 1], ['0%', '18%'])
   const charScale = useTransform(p, [0, 0.7, 1], [1, 1.02, 1])
 
-  // Couple photo fades in when they meet
+  // Individual images fade OUT as couple fades IN
+  const individualOpacity = useTransform(p, [0.4, 0.65], [1, 0])
   const coupleOpacity = useTransform(p, [0.45, 0.72], [0, 1])
   const coupleScale   = useTransform(p, [0.45, 0.72], [0.9, 1])
 
@@ -146,27 +147,27 @@ const InvitationPage = () => {
 
           {/* Characters */}
           <div className="absolute inset-0 flex items-end justify-center pb-[2vh]">
-            {/* Woman — starts LEFT */}
+            {/* Man — starts LEFT */}
             <motion.div
-              style={{ x: womanX, y: charY, scale: charScale, left: '4%' }}
-              className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto"
-            >
-              <img
-                src="/images/female.png"
-                alt="Bride"
-                className="h-full w-auto object-cover rounded-2xl shadow-2xl select-none pointer-events-none"
-                draggable={false}
-              />
-            </motion.div>
-
-            {/* Man — starts RIGHT */}
-            <motion.div
-              style={{ x: manX, y: charY, scale: charScale, right: '4%' }}
+              style={{ x: manX, y: charY, scale: charScale, opacity: individualOpacity, left: '4%' }}
               className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto"
             >
               <img
                 src="/images/male.png"
                 alt="Groom"
+                className="h-full w-auto object-cover rounded-2xl shadow-2xl select-none pointer-events-none"
+                draggable={false}
+              />
+            </motion.div>
+
+            {/* Woman — starts RIGHT */}
+            <motion.div
+              style={{ x: womanX, y: charY, scale: charScale, opacity: individualOpacity, right: '4%' }}
+              className="absolute bottom-0 h-[62vh] sm:h-[72vh] md:h-[78vh] w-auto"
+            >
+              <img
+                src="/images/female.png"
+                alt="Bride"
                 className="h-full w-auto object-cover rounded-2xl shadow-2xl select-none pointer-events-none"
                 draggable={false}
               />
